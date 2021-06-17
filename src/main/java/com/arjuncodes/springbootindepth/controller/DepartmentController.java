@@ -8,10 +8,7 @@ package com.arjuncodes.springbootindepth.controller;
 import com.arjuncodes.springbootindepth.model.Department;
 import com.arjuncodes.springbootindepth.service.DepartmentService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -30,4 +27,10 @@ public class DepartmentController {
     public List<Department> getAllDepartments(){
         return departmentService.getAllDepartments();
     }
+
+    @GetMapping("/departments/{id}")
+    public Department getDepartmentById(@PathVariable("id") Long departmentId){
+        return departmentService.getDepartmentById(departmentId);
+    }
+
 }

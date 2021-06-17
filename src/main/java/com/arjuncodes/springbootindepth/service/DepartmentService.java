@@ -12,5 +12,8 @@ import java.util.List;
 public interface DepartmentService {
     public Department saveDepartment(Department department);
 
-    List<Department> getAllDepartments();
+    public List<Department> getAllDepartments();
+
+    public Department getDepartmentById(Long departmentId);
+
 }
