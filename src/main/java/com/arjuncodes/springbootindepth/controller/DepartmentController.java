@@ -19,18 +19,23 @@ public class DepartmentController {
     private DepartmentService departmentService;
 
     @PostMapping("/departments")
-    public Department saveDepartment(@RequestBody Department department){
-       return departmentService.saveDepartment(department);
+    public Department saveDepartment(@RequestBody Department department) {
+        return departmentService.saveDepartment(department);
     }
 
     @GetMapping("/departments")
-    public List<Department> getAllDepartments(){
+    public List<Department> getAllDepartments() {
         return departmentService.getAllDepartments();
     }
 
     @GetMapping("/departments/{id}")
-    public Department getDepartmentById(@PathVariable("id") Long departmentId){
+    public Department getDepartmentById(@PathVariable("id") Long departmentId) {
         return departmentService.getDepartmentById(departmentId);
+    }
+
+    @PutMapping("/departments/{id}")
+    public Department updateDepartmentById(@PathVariable("id") Long departmentId, @RequestBody Department department) {
+        return departmentService.updateDepartmentById(departmentId, department);
     }
 
 }
