@@ -5,8 +5,21 @@
  */
 package com.arjuncodes.springbootindepth.controller;
 
+import com.arjuncodes.springbootindepth.model.Department;
+import com.arjuncodes.springbootindepth.service.DepartmentService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class DepartmentController {
+
+    @Autowired
+    private DepartmentService departmentService;
+
+    @PostMapping("/departments")
+    public Department saveDepartment(@RequestBody Department department){
+       return departmentService.saveDepartment(department);
+    }
 }

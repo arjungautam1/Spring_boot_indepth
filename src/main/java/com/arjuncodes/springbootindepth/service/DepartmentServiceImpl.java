@@ -5,8 +5,18 @@
  */
 package com.arjuncodes.springbootindepth.service;
 
+import com.arjuncodes.springbootindepth.model.Department;
+import com.arjuncodes.springbootindepth.repository.DepartmentRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class DepartmentServiceImpl implements DepartmentService{
+public class DepartmentServiceImpl implements DepartmentService {
+    @Autowired
+    private DepartmentRepository departmentRepository;
+
+    @Override
+    public Department saveDepartment(Department department) {
+        return departmentRepository.save(department);
+    }
 }

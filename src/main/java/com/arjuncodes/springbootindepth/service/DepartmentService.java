@@ -5,5 +5,8 @@
  */
 package com.arjuncodes.springbootindepth.service;
 
+import com.arjuncodes.springbootindepth.model.Department;
+
 public interface DepartmentService {
+    public Department saveDepartment(Department department);
 }
