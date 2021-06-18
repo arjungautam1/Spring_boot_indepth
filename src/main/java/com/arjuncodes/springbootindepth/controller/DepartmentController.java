@@ -7,7 +7,11 @@ package com.arjuncodes.springbootindepth.controller;
 
 import com.arjuncodes.springbootindepth.model.Department;
 import com.arjuncodes.springbootindepth.service.DepartmentService;
+import com.arjuncodes.springbootindepth.service.MapValidationService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -18,10 +22,22 @@ public class DepartmentController {
 
     @Autowired
     private DepartmentService departmentService;
+    @Autowired
+    private MapValidationService mapValidationService;
 
-    @PostMapping("/departments")
+   /* @PostMapping("/departments")
     public Department saveDepartment(@Valid @RequestBody Department department) {
         return departmentService.saveDepartment(department);
+    }*/
+
+    @PostMapping("/departments")
+    public ResponseEntity<?> saveDepartment(@Valid @RequestBody Department department, BindingResult result){
+        ResponseEntity<?> errorMap=mapValidationService.MapValidationService(result);
+        if(errorMap!=null) return errorMap;
+
+       Department department1=departmentService.saveDepartment(department);
+       return new ResponseEntity<Department>(department1, HttpStatus.CREATED);
+
     }
 
     @GetMapping("/departments")
