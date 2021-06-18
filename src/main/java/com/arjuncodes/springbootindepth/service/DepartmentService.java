@@ -5,6 +5,7 @@
  */
 package com.arjuncodes.springbootindepth.service;
 
+import com.arjuncodes.springbootindepth.error.DepartmentNotFoundException;
 import com.arjuncodes.springbootindepth.model.Department;
 
 import java.util.List;
@@ -14,7 +15,7 @@ public interface DepartmentService {
 
     public List<Department> getAllDepartments();
 
-    public Department getDepartmentById(Long departmentId);
+    public Department getDepartmentById(Long departmentId) throws DepartmentNotFoundException;
 
     public Department updateDepartmentById(Long departmentId, Department department);
 

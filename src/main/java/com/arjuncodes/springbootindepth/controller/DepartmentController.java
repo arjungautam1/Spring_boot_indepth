@@ -5,6 +5,7 @@
  */
 package com.arjuncodes.springbootindepth.controller;
 
+import com.arjuncodes.springbootindepth.error.DepartmentNotFoundException;
 import com.arjuncodes.springbootindepth.model.Department;
 import com.arjuncodes.springbootindepth.service.DepartmentService;
 import com.arjuncodes.springbootindepth.service.MapValidationService;
@@ -55,7 +56,7 @@ public class DepartmentController {
     }
 
     @GetMapping("/departments/{id}")
-    public Department getDepartmentById(@PathVariable("id") Long departmentId) {
+    public Department getDepartmentById(@PathVariable("id") Long departmentId) throws DepartmentNotFoundException {
         return departmentService.getDepartmentById(departmentId);
     }
 
