@@ -14,7 +14,7 @@
 	<name>spring-boot-indepth</name>
 	<description>Spring Boot in depth course</description>
 	<properties>
-		<java.version>16</java.version>
+		<java.version>11</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
