@@ -35,6 +35,12 @@ spring:
 welcome:
   message: '"Welcome to Arjun Codes !! "'
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
 ---
 spring:
   profiles: prod
