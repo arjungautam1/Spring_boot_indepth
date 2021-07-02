@@ -8,7 +8,6 @@ import org.springframework.boot.actuate.endpoint.annotation.ReadOperation;
 import org.springframework.boot.actuate.endpoint.annotation.Selector;
 import org.springframework.stereotype.Component;
 
-import java.awt.*;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
