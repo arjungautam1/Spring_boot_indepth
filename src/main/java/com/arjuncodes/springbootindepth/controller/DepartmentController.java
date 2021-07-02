@@ -32,21 +32,21 @@ public class DepartmentController {
     private final Logger LOGGER =
             LoggerFactory.getLogger(DepartmentController.class);
 
-   /* @PostMapping("/departments")
+    @PostMapping("/departments")
     public Department saveDepartment(@Valid @RequestBody Department department) {
         return departmentService.saveDepartment(department);
-    }*/
-
-    @PostMapping("/departments")
-    public ResponseEntity<?> saveDepartment(@Valid @RequestBody Department department, BindingResult result) {
-        ResponseEntity<?> errorMap = mapValidationService.MapValidationService(result);
-        if (errorMap != null) return errorMap;
-
-        LOGGER.info("Save the department.");
-        Department department1 = departmentService.saveDepartment(department);
-        return new ResponseEntity<Department>(department1, HttpStatus.CREATED);
-
     }
+
+//    @PostMapping("/departments")
+//    public ResponseEntity<?> saveDepartment(@Valid @RequestBody Department department, BindingResult result) {
+//        ResponseEntity<?> errorMap = mapValidationService.MapValidationService(result);
+//        if (errorMap != null) return errorMap;
+//
+//        LOGGER.info("Save the department.");
+//        Department department1 = departmentService.saveDepartment(department);
+//        return new ResponseEntity<Department>(department1, HttpStatus.CREATED);
+//
+//    }
 
     @GetMapping("/departments")
     public List<Department> getAllDepartments() {
