@@ -1,8 +1,47 @@
+server:
+  port: 8080
+
 spring:
+  profiles:
+    active: qa
+
+---
+spring:
+  profiles: dev
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     password: ''
     url: jdbc:mysql://localhost:3306/springdepth
+    username: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+welcome:
+  message: '"Welcome to Arjun Codes !! "'
+
+---
+spring:
+  profiles: qa
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: ''
+    url: jdbc:mysql://localhost:3306/springdepthqa
+    username: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+welcome:
+  message: '"Welcome to Arjun Codes !! "'
+
+---
+spring:
+  profiles: prod
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: ''
+    url: jdbc:mysql://localhost:3306/springdepthprod
     username: root
   jpa:
     hibernate:
